@@ -29,7 +29,7 @@ class BasicAction{
     this.get('/Test/Login.do?UserName='+userName+'&Password='+password).then(data=>{
       window.localStorage.setItem('token',data)
       //console.log(data);
-      location.reload();
+      //location.reload();
     })
   }
 

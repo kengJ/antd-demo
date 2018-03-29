@@ -3,11 +3,12 @@ import {
   Route
 } from 'react-router-dom'
 import LoginPage from './LoginPage'
-import BasicAction from '../action/BasicAction'
+//import BasicAction from '../action/BasicAction'
 
 class PrivateRouter extends React.Component{
   LoginCheck(){
-    return BasicAction.isLogin()
+    //return BasicAction.isLogin()
+    return true
   }
   render(){
     return(

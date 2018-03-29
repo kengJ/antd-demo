@@ -5,9 +5,15 @@ import {
   Breadcrumb,
   Icon
 } from 'antd'
+
+import CheckPage from './CheckPage'
+
+import LeftBar from '../component/Layout/LeftBar'
+import { Row, Col } from 'antd';
 import {Route,Link} from 'react-router-dom'
 import BasicAction from '../action/BasicAction'
-import PrivateRouter from './PrivateRouter'
+
+import TestTable from '../component/TestTable'
 
 //import axios from 'axios'
 const { Header, Footer,Content } = Layout;
@@ -16,9 +22,13 @@ const SubMenu = Menu.SubMenu;
 
 const Person = ()=>(<div>Person</div>)
 
-class Basic extends React.Component{
+
+
+
+class IndexPage extends React.Component{
   state={
-    response:''
+    response:'',
+    main:Person
   }
   test(){
     //console.log(BasicAction.get('/Test/Login.do?UserName=admin&Password=admin'));
@@ -34,7 +44,12 @@ class Basic extends React.Component{
       BasicAction.Logout()
     }
   }
+  LeftBarClick(e){
+    console.log('index',e.item.props.name);
+    this.setState({main:e.item.props.name})
+  }
   render(){
+    let Mainbox= this.state.main
     return(
       <Layout className="layout">
         <Header>
@@ -46,16 +61,6 @@ class Basic extends React.Component{
             style={{ lineHeight: '64px' }}
             onClick={this.MenuClick}
           >
-            <Menu.Item key="1">nav 1</Menu.Item>
-            <Menu.Item key="2">nav 2</Menu.Item>
-            <Menu.Item key="3">nav 3</Menu.Item>
-            {
-              BasicAction.isLogin()?(<SubMenu title={<span><Icon type="user" />admin</span>} style={{float:'right'}}>
-                  <Menu.Item key="user:1">基本信息</Menu.Item>
-                  <Menu.Item key="user:ChangUser"><Link to={BasicAction.GetPathName()}>切换用户</Link></Menu.Item>
-                  <Menu.Item key="user:Layout"><Link to={BasicAction.GetPathName()}>退出</Link></Menu.Item>
-              </SubMenu>):(<Menu.Item key="user">登录</Menu.Item>)
-            }
           </Menu>
 
         </Header>
@@ -66,7 +71,15 @@ class Basic extends React.Component{
             <Breadcrumb.Item>App</Breadcrumb.Item>
           </Breadcrumb>
           <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
-            <Route path="/" component={Person}/>
+          <Row>
+            <Col span={6}>
+              <LeftBar LeftBarClick = {this.LeftBarClick.bind(this)}></LeftBar>
+            </Col>
+            <Col>
+              <this.state.main></this.state.main>
+            </Col>
+          </Row>
+
           </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>
@@ -76,4 +89,4 @@ class Basic extends React.Component{
     )
   }
 }
-export default Basic
+export default IndexPage

@@ -3,9 +3,11 @@ import React, { Component } from 'react';
 import './App.css';
 //import { Button } from 'element-react';
 import Routers from './routers'
+import IndexPage from './page/IndexPage'
+
 class App extends Component {
   render() {
-    return (<Routers />);
+    return (<IndexPage />);
   }
 }
 
