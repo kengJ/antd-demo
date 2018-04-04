@@ -3,32 +3,29 @@ import {
   Menu,
   Layout,
   Breadcrumb,
-  Icon
+  Icon,
+  Divider
 } from 'antd'
+import CheckPage from '../component/CheckPage'
 
-import CheckPage from './CheckPage'
-
-import LeftBar from '../component/Layout/LeftBar'
+import LeftBarPage from './LeftBarPage'
 import { Row, Col } from 'antd';
 import {Route,Link} from 'react-router-dom'
 import BasicAction from '../action/BasicAction'
-
+import ICCheck from './ICCheck'
 import TestTable from '../component/TestTable'
 
 //import axios from 'axios'
 const { Header, Footer,Content } = Layout;
 const SubMenu = Menu.SubMenu;
-// const MenuItemGroup = Menu.ItemGroup;
 
-const Person = ()=>(<div>Person</div>)
-
-
+const ICCheckpage = ()=>(<ICCheck></ICCheck>)
 
 
 class IndexPage extends React.Component{
   state={
     response:'',
-    main:Person
+    main:ICCheckpage
   }
   test(){
     //console.log(BasicAction.get('/Test/Login.do?UserName=admin&Password=admin'));
@@ -45,7 +42,6 @@ class IndexPage extends React.Component{
     }
   }
   LeftBarClick(e){
-    console.log('index',e.item.props.name);
     this.setState({main:e.item.props.name})
   }
   render(){
@@ -73,9 +69,9 @@ class IndexPage extends React.Component{
           <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
           <Row>
             <Col span={6}>
-              <LeftBar LeftBarClick = {this.LeftBarClick.bind(this)}></LeftBar>
+              <LeftBarPage LeftBarClick = {this.LeftBarClick.bind(this)}></LeftBarPage>
             </Col>
-            <Col>
+            <Col span={18}>
               <this.state.main></this.state.main>
             </Col>
           </Row>
