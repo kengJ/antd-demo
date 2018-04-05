@@ -20,27 +20,20 @@ class CheckPage extends React.Component{
   render(){
     return(
       <div style={{paddingTop:'50px'}}>
-      <Search
-        placeholder={this.props.placeholder}
-        onSearch={this.onSearch.bind(this)}
-        style={{ width: 400}}
-        enterButton
-      />
       <InputGroup compact>
-          <Select defaultValue="Sign Up">
-            <Option value="Sign Up">Sign Up</Option>
-            <Option value="Sign In">Sign In</Option>
+          <Select defaultValue="code">
+            <Option value="code">编号</Option>
+            <Option value="name">名称</Option>
           </Select>
-          <AutoComplete
-            dataSource={this.state.dataSource}
-            style={{ width: 200 }}
-            onChange={this.handleChange}
-            placeholder="Email"
+          <Search
+            placeholder={this.props.placeholder}
+            onSearch={this.onSearch.bind(this)}
+            style={{ width: 300}}
             enterButton
           />
         </InputGroup>
       <br/>
-      <Table columns={this.props.columns} dataSource={data} style={{paddingTop:'30px'}}/>
+      <Table columns={this.props.columns} dataSource={data} style={{paddingTop:'10px'}} bordered size="middle" />
       </div>
     )
   }

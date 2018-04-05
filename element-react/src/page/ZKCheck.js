@@ -9,10 +9,12 @@ const columns = [{
   dataIndex: 'code',
   key: 'code',
   render: text => <a href="#">{text}</a>,
+  sorter: (a, b) =>a.code-b.code,
 }, {
   title: '指纹机名称',
   dataIndex: 'name',
   key: 'name',
+  sorter: (a, b) =>a.name.length-b.name.length,
 }, {
   title: 'IP',
   dataIndex: 'ip',
@@ -21,6 +23,7 @@ const columns = [{
   title: '最后同步时间',
   key: 'synctime',
   dataIndex: 'synctime',
+  sorter: (a, b) =>a.synctime-b.synctime,
 },{
   title: '区域',
   key: 'area',
