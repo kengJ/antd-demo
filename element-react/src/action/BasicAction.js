@@ -16,6 +16,17 @@ class BasicAction{
     })
   }
 
+  static getFlask(url){
+    axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+    return axios({
+      method: 'get',
+      url: 'http://127.0.0.1:5000'+url,
+      headers:{
+        'Access-Control-Allow-Origin':'*'
+      }
+    })
+  }
+
   static isLogin(){
     let token = window.localStorage.getItem('token');
     if (!token) {

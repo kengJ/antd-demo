@@ -34,15 +34,17 @@ const columns = [{
   dataIndex: 'isdept',
   align:'center',
 }];
-
+const data = []
 class ICCheck extends React.Component{
   Search(){
     console.log('test');
     return 'test'
+    console.log(this.state.data);
   }
   render(){
     return(
-      <CheckPage Search={this.Search} placeholder = "请输入查询内容" columns={columns}></CheckPage>
+      <CheckPage Search={this.Search} placeholder = "请输入查询内容" columns={columns} data={data}
+      expandedRowRender={record => <p style={{ margin: 0 }}>{record.description}<br/>{record.description}</p>}></CheckPage>
     )
   }
 }

@@ -8,42 +8,9 @@ import ZKCheck from './ZKCheck'
 
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
-
-//const ICCheck = ()=>()
-
-// const columns = [{
-//   title: 'Name',
-//   dataIndex: 'name',
-//   key: 'name',
-//   render: text => <a href="#">{text}</a>,
-// }, {
-//   title: 'Age',
-//   dataIndex: 'age',
-//   key: 'age',
-// }, {
-//   title: 'Address',
-//   dataIndex: 'address',
-//   key: 'address',
-// }, {
-//   title: 'Action',
-//   key: 'action',
-//   render: (text, record) => (
-//     <span>
-//       <a href="#">Action 一 {record.name}</a>
-//       <Divider type="vertical" />
-//       <a href="#">Delete</a>
-//       <Divider type="vertical" />
-//       <a href="#" className="ant-dropdown-link">
-//         More actions <Icon type="down" />
-//       </a>
-//     </span>
-//   ),
-// }];
-
-
-
 const ICCheckpage = ()=>(<ICCheck></ICCheck>)
 const ZKCheckpage = ()=>(<ZKCheck></ZKCheck>)
+
 
 class LeftBarPage extends React.Component{
   handleClick = (e) => {
