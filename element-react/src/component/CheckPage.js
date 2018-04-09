@@ -11,20 +11,35 @@ const Option = Select.Option;
 class CheckPage extends React.Component{
   state={
     columns:this.props.columns,
-    expandedRowKeys:[]
+    expandedRowKeys:[],
+    SelectBtn:'code'
   }
-  onSearch(){
-    this.props.Search()
+  onSearch(value){
+    this.props.Search(this.state.SelectBtn,value)
   }
   onExpand(expanded, record){
     console.log(expanded, record);
+    if(expanded){
+      this.setState({
+        expandedRowKeys:[record.key]
+      })
+    }else{
+      this.setState({
+        expandedRowKeys:[]
+      })
+    }
     console.log(this.state.expandedRowKeys);
+  }
+  SelectBtnSearch(value){
+    this.setState({
+      SelectBtn:value
+    })
   }
   render(){
     return(
       <div style={{paddingTop:'20px'}}>
       <InputGroup compact>
-        <Select defaultValue="code" size="small">
+        <Select defaultValue={this.state.SelectBtn} size="small" onSelect={this.SelectBtnSearch.bind(this)}>
           <Option value="code">编号</Option>
           <Option value="name">名称</Option>
         </Select>

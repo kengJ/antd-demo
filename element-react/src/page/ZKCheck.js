@@ -55,18 +55,17 @@ class ZKCheck extends React.Component{
   state={
     data:[]
   }
-  tempconstructor(){
-    //super()
-    BasicAction.getFlask('/getzkdata').then(data=>{
-      console.log(data.data);
+  tempconstructor(type,value){
+    let url = '/getzkdata'
+    if(value.length>0){
+      url = '/getzkdata/'+type+'/'+value
+    }
+    BasicAction.getFlask(url).then(data=>{
       this.setState({data:data.data})
     })
   }
-  Search(){
-    console.log('test');
-    //console.log(this.state.data);
-    this.tempconstructor()
-    //return 'test'
+  Search(type,value){
+    this.tempconstructor(type,value)
   }
   render(){
     return(
