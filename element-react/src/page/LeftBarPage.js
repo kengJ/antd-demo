@@ -4,13 +4,14 @@ import {
 } from 'antd'
 import ICCheck from './ICCheck'
 import ZKCheck from './ZKCheck'
+import WKCheck from './WKCheck'
 
 
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 const ICCheckpage = ()=>(<ICCheck></ICCheck>)
 const ZKCheckpage = ()=>(<ZKCheck></ZKCheck>)
-
+const WKCheckpage = ()=>(<WKCheck></WKCheck>)
 
 class LeftBarPage extends React.Component{
   handleClick = (e) => {
@@ -41,6 +42,10 @@ class LeftBarPage extends React.Component{
                   <Menu.Item key="6" disabled={true}>名单查询</Menu.Item>
                 </MenuItemGroup>
               </SubMenu>
+              <Menu.Item key="7" name={WKCheckpage}>
+                <Icon type="book" />
+                文控平台
+              </Menu.Item>
             </Menu>
     )
   }
