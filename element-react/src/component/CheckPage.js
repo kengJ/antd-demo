@@ -12,7 +12,7 @@ class CheckPage extends React.Component{
   state={
     columns:this.props.columns,
     expandedRowKeys:[],
-    SelectBtn:'code'
+    SelectBtn:this.props.isSelectBtn?'code':''
   }
   onSearch(value){
     this.props.Search(this.state.SelectBtn,value)
@@ -38,7 +38,8 @@ class CheckPage extends React.Component{
   render(){
     return(
       <div style={{paddingTop:'20px'}}>
-      <InputGroup compact>
+        {this.props.isSelectBtn?(
+          <InputGroup compact>
         <Select defaultValue={this.state.SelectBtn} size="small" onSelect={this.SelectBtnSearch.bind(this)}>
           <Option value="code">编号</Option>
           <Option value="name">名称</Option>
@@ -50,7 +51,18 @@ class CheckPage extends React.Component{
           enterButton
           size="small"
         />
-      </InputGroup>
+        </InputGroup>
+      ):(
+        <InputGroup compact>
+        <Search
+            placeholder={this.props.placeholder}
+            onSearch={this.onSearch.bind(this)}
+            style={{ width: 300}}
+            enterButton
+            size="small"
+            />
+            </InputGroup>
+      )}
       <br/>
       <ZKMessageForm />
       <Table columns={this.props.columns} dataSource={this.props.data} style={{paddingTop:'10px'}} bordered size="middle"

@@ -71,6 +71,7 @@ class ZKCheck extends React.Component{
     return(
       <div>
       <CheckPage Search={this.Search.bind(this)} placeholder = "请输入查询内容" columns = {columns} data={this.state.data}
+      isSelectBtn={true}
       expandedRowRender={record =>
         <Card>
           <Card.Grid style={{width: '35%',height:'130px'}}>

@@ -1,51 +1,115 @@
 import React from 'react'
 import CheckPage from '../component/CheckPage'
+import NestedTable from '../component/NestedTable'
 import {
-  Menu, Icon,Divider
+  Menu, Icon,Divider,Table, Badge, Dropdown
 } from 'antd'
+import BasicAction from '../action/BasicAction'
+const menu = (
+  <Menu>
+    <Menu.Item>
+      Action 1
+    </Menu.Item>
+    <Menu.Item>
+      Action 2
+    </Menu.Item>
+  </Menu>
+);
 
+const expandedRowRender = () => {
+    const columns = [
+      { title: 'Date', dataIndex: 'date', key: 'date' },
+      { title: 'Name', dataIndex: 'name', key: 'name' },
+      { title: 'Status', key: 'state', render: () => <span><Badge status="success" />Finished</span> },
+      { title: 'Upgrade Status', dataIndex: 'upgradeNum', key: 'upgradeNum' },
+    ];
+    const data = [];
+    for (let i = 0; i < 3; ++i) {
+      data.push({
+        key: i,
+        date: '2014-12-24 23:12:00',
+        name: 'This is production name',
+        upgradeNum: 'Upgraded: 56',
+      });
+    }
+    return (
+      <Table
+        columns={columns}
+        dataSource={data}
+        pagination={false}
+      />
+    );
+};
 const columns = [{
-  title: 'ID',
-  dataIndex: 'code',
-  key: 'id',
-  align:'center',
-  sorter: (a, b) =>a.id-b.id,
-  render: text => <a href="#">{text}</a>,
-}, {
-  title: '工号',
+  title: '账号',
   dataIndex: 'code',
   key: 'code',
   align:'center',
-  sorter: (a, b) =>a.name.code-b.name.code,
 }, {
-  title: '是否翼闸',
-  dataIndex: 'isdoor',
-  key: 'isdoor',
+  title: '姓名',
+  dataIndex: 'name',
+  key: 'name',
   align:'center',
 }, {
-  title: '最后同步时间',
-  key: 'synctime',
-  dataIndex: 'synctime',
+  title: '密码',
+  dataIndex: 'password',
+  key: 'password',
   align:'center',
-  sorter: (a, b) =>a.synctime-b.synctime,
+}, {
+  title: '是否管理员',
+  key: 'useradmin',
+  dataIndex: 'useradmin',
+  align:'center',
+  render:(text)=>(text==null?'否':'是')
 },{
-  title: '部门标记',
-  key: 'isdept',
-  dataIndex: 'isdept',
+  title: '更新日期',
+  key: 'modifydate',
+  dataIndex: 'modifydate',
+  align:'center',
+},{
+  title: '文件夹名称',
+  key: 'filename',
+  dataIndex: 'filename',
+  align:'center',
+  sorter: (a, b) =>a.filename.length-b.filename.length,
+},{
+  title: '文件夹权限',
+  key: 'filelevel',
+  dataIndex: 'filelevel',
   align:'center',
 }];
-const data = []
-class ICCheck extends React.Component{
-  Search(){
-    console.log('test');
-    return 'test'
-    console.log(this.state.data);
+
+class WKCheck extends React.Component{
+  state={
+    data:[]
+  }
+  tempconstructor(value){
+    let url = '/getwkdata/'+value
+    // if(value.length>0){
+    //   url = '/getzkdata/'+type+'/'+value
+    // }
+    BasicAction.getFlask(url).then(data=>{
+      if(data.data.length){
+        this.setState({data:data.data})
+      }else{
+        alert('NO DATA')
+      }
+    })
+  }
+  Search(type,value){
+    // this.tempconstructor(type,value)
+    //console.log(type,value);
+    //this.tempconstructor('','')
+    if(value&&value.length==6){
+      //console.log(value);
+    this.tempconstructor(value)
+    }
   }
   render(){
     return(
-      <CheckPage Search={this.Search} placeholder = "请输入查询内容" columns={columns} data={data}
-      expandedRowRender={record => <p style={{ margin: 0 }}>{record.description}<br/>{record.description}</p>}></CheckPage>
+      <CheckPage Search={this.Search.bind(this)} placeholder = "请输入查询内容" columns={columns} data={this.state.data}
+            expandedRowRender={null}></CheckPage>
     )
   }
 }
-export default ICCheck
+export default WKCheck
