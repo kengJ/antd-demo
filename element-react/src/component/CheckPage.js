@@ -64,7 +64,7 @@ class CheckPage extends React.Component{
             </InputGroup>
       )}
       <br/>
-      <ZKMessageForm />
+      {this.props.toolbar==null?(<div></div>):(<div><this.props.toolbar /></div>)}
       <Table columns={this.props.columns} dataSource={this.props.data} style={{paddingTop:'10px'}} bordered size="middle"
       expandedRowRender={this.props.expandedRowRender} expandRowByClick={true} onExpand={this.onExpand.bind(this)} expandedRowKeys={this.state.expandedRowKeys} />
       </div>

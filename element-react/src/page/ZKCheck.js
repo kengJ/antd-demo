@@ -4,6 +4,9 @@ import {
   Menu, Icon,Divider,Button,Card, Col, Row
 } from 'antd'
 import BasicAction from '../action/BasicAction'
+import ZKMessageForm from '../component/ZKMessageForm'
+
+const form  = ()=>(<ZKMessageForm />)
 const columns = [{
   title: '指纹机编号',
   dataIndex: 'code',
@@ -71,7 +74,7 @@ class ZKCheck extends React.Component{
     return(
       <div>
       <CheckPage Search={this.Search.bind(this)} placeholder = "请输入查询内容" columns = {columns} data={this.state.data}
-      isSelectBtn={true}
+      isSelectBtn={true} toolbar={form}
       expandedRowRender={record =>
         <Card>
           <Card.Grid style={{width: '35%',height:'130px'}}>
