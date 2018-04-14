@@ -5,57 +5,38 @@ import {
   Menu, Icon,Divider,Table, Badge, Dropdown,Button
 } from 'antd'
 import BasicAction from '../action/BasicAction'
-import WKAddFileForm from '../component/WKAddFileForm'
+import FileBox from '../component/WK/FileBox'
+import UserBox from '../component/WK/UserBox'
 import './WKCheck.css'
 
 //工具栏
 class Toolbar extends React.Component{
   state = {
-    visible: false,
+    FileBox: false,
     defaultValue:this.props.defaultValue,
-    AddUser_visible:false
+    UserBox:false
   };
-  showModal = () => {
-    this.setState({ visible: true });
+  showFileModal = () => {
+    this.setState({ FileBox: true });
   }
-  showModal_AddUser = ()=>{
-    this.setState({
-      AddUser_visible:true
-    })
+  showUserModal = ()=>{
+    this.setState({UserBox:true})
   }
-  handleCancel = () => {
-    this.setState({ visible: false ,AddUser_visible:false});
-  }
-  handleCreate = () => {
-    const form = this.formRef.props.form;
-    form.validateFields((err, values) => {
-      if (err) {
-        return;
-      }
-
-      console.log('Received values of form: ', values);
-      form.resetFields();
-      this.setState({ visible: false });
-    });
-  }
-  saveFormRef = (formRef) => {
-    this.formRef = formRef;
+  onCancel = () => {
+    this.setState({ FileBox: false ,UserBox:false});
   }
   render(){
     return(
       <div className="toolbarBtn">
-      <Button type="primary" icon="plus-circle-o" size="small" onClick={this.showModal_AddUser}>新增账号</Button>
-      <Button type="primary" icon="plus-circle-o" size="small" onClick={this.showModal}>新增文件夹权限</Button>
-      <WKAddFileForm
-        wrappedComponentRef={this.saveFormRef}
-        visible={this.state.visible}
-        onCancel={this.handleCancel}
-        onCreate={this.handleCreate}
+      <Button type="primary" icon="plus-circle-o" size="small" onClick={this.showUserModal}>账号管理</Button>
+      <Button type="primary" icon="plus-circle-o" size="small" onClick={this.showFileModal}>新增文件夹权限</Button>
+      <FileBox
+        visible={this.state.FileBox}
+        onCancel={this.onCancel}
         defaultValue={this.state.defaultValue}
         data={this.props.data}
-        AddUser_visible={this.state.AddUser_visible}
-        AddUser_onCancel={this.handleCancel}
       />
+      <UserBox onCancel={this.onCancel.bind(this)} visible={this.state.UserBox}/>
     </div>
     )
   }
