@@ -66,15 +66,7 @@ class FileBox extends React.Component {
         width="1000px"
         footer={[<Button key="back" onClick={this.props.onCancel}>退出</Button>]}
       >
-      <FileSelectInput />
-      <Search
-        style={{width:'200px'}}
-        placeholder="请输入查询的账号"
-        onSearch={this.onSearch.bind(this)}
-        defaultValue = {this.state.defaultValue}
-        size="small"
-        enterButton
-      />
+      <FileSelectInput FileNames={['文件夹1','文件夹2']} />
       <Table columns={columns} dataSource={this.state.data} size="small" style={{paddingTop:'10px'}} />
       </Modal>
       </div>

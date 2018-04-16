@@ -17,6 +17,8 @@ class Toolbar extends React.Component{
     UserBox:false
   };
   showFileModal = () => {
+    //查询所有文件夹名称，并赋值给state
+    //执行查询操作前，先查询该值是否为空
     this.setState({ FileBox: true });
   }
   showUserModal = ()=>{
@@ -33,8 +35,8 @@ class Toolbar extends React.Component{
       <FileBox
         visible={this.state.FileBox}
         onCancel={this.onCancel}
-        defaultValue={this.state.defaultValue}
-        data={this.props.data}
+        defaultValue=""
+        data={[]}
       />
       <UserBox onCancel={this.onCancel.bind(this)} visible={this.state.UserBox}/>
     </div>
