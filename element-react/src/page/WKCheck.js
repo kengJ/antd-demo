@@ -1,9 +1,6 @@
 import React from 'react'
 import CheckPage from '../component/CheckPage'
-import NestedTable from '../component/NestedTable'
-import {
-  Menu, Icon,Divider,Table, Badge, Dropdown,Button
-} from 'antd'
+import {Button} from 'antd'
 import BasicAction from '../action/BasicAction'
 import FileBox from '../component/WK/FileBox'
 import UserBox from '../component/WK/UserBox'

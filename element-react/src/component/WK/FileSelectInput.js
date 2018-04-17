@@ -3,10 +3,6 @@ import { AutoComplete,Input,Icon,Button } from 'antd';
 
 const InputGroup = Input.Group;
 
-function onSelect(value) {
-  console.log('onSelect', value);
-}
-
 class FileSelectInput extends React.Component{
   state = {
     dataSource: [],

@@ -1,8 +1,5 @@
 import React from 'react'
 import CheckPage from '../component/CheckPage'
-import {
-  Menu, Icon,Divider
-} from 'antd'
 
 const columns = [{
   title: '翼闸编号',
@@ -10,7 +7,7 @@ const columns = [{
   key: 'code',
   align:'center',
   sorter: (a, b) =>a.code-b.code,
-  render: text => <a href="#">{text}</a>,
+  render: text => <a>{text}</a>,
 }, {
   title: '翼闸名称',
   dataIndex: 'name',
@@ -37,9 +34,7 @@ const columns = [{
 const data = []
 class ICCheck extends React.Component{
   Search(){
-    console.log('test');
     return 'test'
-    console.log(this.state.data);
   }
   render(){
     return(

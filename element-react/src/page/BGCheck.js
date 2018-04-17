@@ -1,12 +1,6 @@
 import React from 'react'
 import CheckPage from '../component/CheckPage'
-import {
-  Menu, Icon,Divider
-} from 'antd'
-import ZKMessageForm from '../component/ZKMessageForm'
 import BasicAction from '../action/BasicAction'
-
-const form  = ()=>(<ZKMessageForm />)
 
 const columns = [{
   title: '工号',
@@ -32,7 +26,7 @@ const columns = [{
   align:'left',
   render:record => <a href={record.url} target='_blank'>{record.title}</a>
 }];
-const data = []
+
 class ICCheck extends React.Component{
   state={
     data:[]

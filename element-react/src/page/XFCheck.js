@@ -1,8 +1,5 @@
 import React from 'react'
 import CheckPage from '../component/CheckPage'
-import {
-  Menu, Icon,Divider
-} from 'antd'
 import ZKMessageForm from '../component/ZKMessageForm'
 import BasicAction from '../action/BasicAction'
 
@@ -40,7 +37,6 @@ const columns = [{
   width:'100px',
   render: text => <span>{text?'在线':'离线'}</span>,
 }];
-const data = []
 class ICCheck extends React.Component{
   state={
     data:[]

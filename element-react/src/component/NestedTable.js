@@ -24,10 +24,10 @@ const expandedRowRender = () => {
         key: 'operation',
         render: () => (
           <span className="table-operation">
-            <a href="#">Pause</a>
-            <a href="#">Stop</a>
+            <a>Pause</a>
+            <a>Stop</a>
             <Dropdown overlay={menu}>
-              <a href="#">
+              <a>
                 More <Icon type="down" />
               </a>
             </Dropdown>
@@ -61,7 +61,7 @@ const expandedRowRender = () => {
       { title: 'Upgraded', dataIndex: 'upgradeNum', key: 'upgradeNum' },
       { title: 'Creator', dataIndex: 'creator', key: 'creator' },
       { title: 'Date', dataIndex: 'createdAt', key: 'createdAt' },
-      { title: 'Action', key: 'operation', render: () => <a href="#">Publish</a> },
+      { title: 'Action', key: 'operation', render: () => <a>Publish</a> },
     ];
   const data = [];
   for (let i = 0; i < 3; ++i) {

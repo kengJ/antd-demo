@@ -2,22 +2,16 @@ import React from 'react'
 import {
   Menu,
   Layout,
-  Breadcrumb,
-  Icon,
-  Divider
+  Breadcrumb
 } from 'antd'
-import CheckPage from '../component/CheckPage'
 
 import LeftBarPage from './LeftBarPage'
 import { Row, Col } from 'antd';
-import {Route,Link} from 'react-router-dom'
 import BasicAction from '../action/BasicAction'
 import ICCheck from './ICCheck'
-import TestTable from '../component/TestTable'
 
 //import axios from 'axios'
 const { Header, Footer,Content } = Layout;
-const SubMenu = Menu.SubMenu;
 
 const ICCheckpage = ()=>(<ICCheck></ICCheck>)
 
@@ -45,7 +39,6 @@ class IndexPage extends React.Component{
     this.setState({main:e.item.props.name})
   }
   render(){
-    let Mainbox= this.state.main
     return(
       <Layout className="layout">
         <Header>

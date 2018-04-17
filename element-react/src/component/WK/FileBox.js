@@ -1,11 +1,6 @@
 import React from 'react'
-import { Button, Modal, Form, Input, Radio ,DatePicker,Table,AutoComplete} from 'antd';
+import { Button,Modal,Table} from 'antd';
 import FileSelectInput from './FileSelectInput'
-import BasicAction from '../../action/BasicAction'
-
-const Search = Input.Search;
-const FormItem = Form.Item;
-const InputGroup = Input.Group;
 
 const columns = [{
   title: '账号',

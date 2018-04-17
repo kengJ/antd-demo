@@ -1,10 +1,8 @@
 import React from 'react'
 import CheckPage from '../component/CheckPage'
-import {
-  Menu, Icon,Divider,Button,Card, Col, Row
-} from 'antd'
 import BasicAction from '../action/BasicAction'
 import ZKMessageForm from '../component/ZKMessageForm'
+import {Card} from 'antd'
 
 const form  = ()=>(<ZKMessageForm />)
 const columns = [{
@@ -33,26 +31,6 @@ const columns = [{
   align:'center',
   sorter: (a, b) =>a.synctime-b.synctime,
 }];
-
-const data1 = [{
-  code:'111',
-  name:'test',
-  ip:'127.0.0.1',
-  synctime:'2017-01-01',
-  dept:'test部门',
-  Supplier:'test供应商',
-  mac:'1111111111111',
-  buydate:'2017-01-01',
-  ysbill:'ys100000',
-  rdbill:'rd100000',
-  guarantee:'1',
-  installation:'安装位置'
-}]
-
-const gridStyle = {
-  width: '30%',
-  textAlign: 'left',
-};
 
 class ZKCheck extends React.Component{
   state={

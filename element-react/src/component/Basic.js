@@ -7,7 +7,6 @@ import {
 } from 'antd'
 import {Route,Link} from 'react-router-dom'
 import BasicAction from '../action/BasicAction'
-import PrivateRouter from './PrivateRouter'
 
 //import axios from 'axios'
 const { Header, Footer,Content } = Layout;

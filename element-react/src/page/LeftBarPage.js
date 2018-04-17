@@ -1,7 +1,5 @@
 import React from 'react'
-import {
-  Menu, Icon,Divider
-} from 'antd'
+import {Menu, Icon} from 'antd'
 import ICCheck from './ICCheck'
 import ZKCheck from './ZKCheck'
 import WKCheck from './WKCheck'

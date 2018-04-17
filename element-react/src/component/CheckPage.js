@@ -1,8 +1,5 @@
 import React from 'react'
-import { Input ,Button} from 'antd';
-import { Table, Icon, Divider } from 'antd';
-import { Select, AutoComplete, Cascader } from 'antd';
-import ZKMessageForm from '../component/ZKMessageForm'
+import { Input,Table,Select } from 'antd';
 const Search = Input.Search;
 
 const InputGroup = Input.Group;
