@@ -5,6 +5,8 @@ import {
 import ICCheck from './ICCheck'
 import ZKCheck from './ZKCheck'
 import WKCheck from './WKCheck'
+import XFCheck from './XFCheck'
+import BGCheck from './BGCheck'
 
 
 const SubMenu = Menu.SubMenu;
@@ -12,6 +14,8 @@ const MenuItemGroup = Menu.ItemGroup;
 const ICCheckpage = ()=>(<ICCheck></ICCheck>)
 const ZKCheckpage = ()=>(<ZKCheck></ZKCheck>)
 const WKCheckpage = ()=>(<WKCheck></WKCheck>)
+const XFCheckpage = ()=>(<XFCheck></XFCheck>)
+const BGCheckpage = ()=>(<BGCheck></BGCheck>)
 
 class LeftBarPage extends React.Component{
   handleClick = (e) => {
@@ -41,10 +45,17 @@ class LeftBarPage extends React.Component{
                   <Menu.Item key="5" name={ZKCheckpage}>信息查询</Menu.Item>
                   <Menu.Item key="6" disabled={true}>名单查询</Menu.Item>
                 </MenuItemGroup>
+                <MenuItemGroup key="g4" title="消费机">
+                  <Menu.Item key="7" name={XFCheckpage}>信息查询</Menu.Item>
+                </MenuItemGroup>
               </SubMenu>
-              <Menu.Item key="7" name={WKCheckpage}>
+              <Menu.Item key="8" name={WKCheckpage}>
                 <Icon type="book" />
                 文控平台
+              </Menu.Item>
+              <Menu.Item key="9" name={BGCheckpage}>
+                <Icon type="book" />
+                办公协作平台
               </Menu.Item>
             </Menu>
     )
